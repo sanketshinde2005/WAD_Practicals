@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PICT B.E. Course Structure</title>
+    
+    <!-- jQuery Mobile CDN -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+    <div data-role="page" id="home">
+        
+        <div data-role="header" data-theme="b">
+            <h1>PICT B.E. Curriculum</h1>
+        </div>
+
+        <div data-role="main" class="ui-content">
+            <h2>Computer Engineering - Course Structure</h2>
+
+            <!-- Each year is a collapsible section -->
+            <div data-role="collapsibleset" data-theme="b" data-content-theme="d">
+
+                <!-- FE (First Year) -->
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>FE - First Year</h3>
+                    <ul data-role="listview">
+                        <li>
+                            <h3>Engineering Mathematics</h3>
+                            <p>Calculus, linear algebra, and differential equations.</p>
+                        </li>
+                        <li>
+                            <h3>Basic Electrical Engineering</h3>
+                            <p>Fundamentals of circuits, AC/DC systems, and transformers.</p>
+                        </li>
+                        <li>
+                            <h3>Programming & Problem Solving</h3>
+                            <p>Introduction to C programming, logic building, and algorithms.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- SE (Second Year) -->
+                <div data-role="collapsible">
+                    <h3>SE - Second Year</h3>
+                    <ul data-role="listview">
+                        <li>
+                            <h3>Data Structures</h3>
+                            <p>Arrays, linked lists, trees, graphs, and sorting algorithms.</p>
+                        </li>
+                        <li>
+                            <h3>Object Oriented Programming</h3>
+                            <p>OOP concepts using Java: inheritance, polymorphism, abstraction.</p>
+                        </li>
+                        <li>
+                            <h3>Computer Graphics</h3>
+                            <p>2D/3D transformations, clipping, and rendering techniques.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- TE (Third Year) -->
+                <div data-role="collapsible">
+                    <h3>TE - Third Year</h3>
+                    <ul data-role="listview">
+                        <li>
+                            <h3>Database Management Systems</h3>
+                            <p>SQL, normalization, ER diagrams, and transaction management.</p>
+                        </li>
+                        <li>
+                            <h3>Web Application Development</h3>
+                            <p>HTML, CSS, JavaScript, Node.js, Express, Angular, and MongoDB.</p>
+                        </li>
+                        <li>
+                            <h3>Computer Networks</h3>
+                            <p>OSI model, TCP/IP, routing protocols, and network security.</p>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- BE (Final Year) -->
+                <div data-role="collapsible">
+                    <h3>BE - Final Year</h3>
+                    <ul data-role="listview">
+                        <li>
+                            <h3>Machine Learning</h3>
+                            <p>Supervised/unsupervised learning, neural networks, and model evaluation.</p>
+                        </li>
+                        <li>
+                            <h3>Cloud Computing</h3>
+                            <p>AWS, virtualization, containerization, and cloud service models.</p>
+                        </li>
+                        <li>
+                            <h3>B.E. Project</h3>
+                            <p>Capstone project applying knowledge from all four years to solve a real-world problem.</p>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4>&copy; PICT Pune</h4>
+        </div>
+    </div>
+
+</body>
+</html>
