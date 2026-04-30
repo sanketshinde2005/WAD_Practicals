@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AJAX Weather Application</title>
+    <!-- Minimal Styling -->
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            text-align: center; 
+            margin-top: 50px; 
+            background-color: #f4f4f9;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            display: inline-block;
+        }
+        input, button { 
+            padding: 10px; 
+            font-size: 16px; 
+            margin: 5px; 
+            border-radius: 4px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover { background-color: #0056b3; }
+        #weather-result { 
+            margin-top: 20px; 
+            font-size: 18px; 
+            color: #333; 
+            text-align: left;
+        }
+        .error { color: red; text-align: center; display: block; }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>Local Weather Search</h2>
+        <p>Try: Pune, Mumbai, or Delhi</p>
+        
+        <!-- Input and Button -->
+        <input type="text" id="cityInput" placeholder="Enter city name">
+        <button onclick="getWeather()">Get Weather</button>
+
+        <!-- Display Area -->
+        <div id="weather-result"></div>
+    </div>
+
+    <!-- AJAX Script -->
+    <script>
+        function getWeather() {
+            // Get input value and convert to lowercase to match JSON keys
+            const city = document.getElementById("cityInput").value.toLowerCase().trim();
+            const resultDiv = document.getElementById("weather-result");
+
+            if (city === "") {
+                resultDiv.innerHTML = "<span class='error'>Please enter a city name.</span>";
+                return;
+            }
+
+            resultDiv.innerHTML = "<p style='text-align:center;'>Fetching data...</p>";
+
+            // 1. Create an AJAX request using the modern Fetch API
+            // Note: Browsers block local file fetching (CORS). You must run this via a local server (e.g. VS Code Live Server)
+            fetch("weather.json")
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error("Could not load weather.json");
+                    }
+                    return response.json(); // Parse the JSON data
+                })
+                .then(data => {
+                    // 2. Check if the requested city exists in our local JSON map
+                    if (data[city]) {
+                        const weather = data[city];
+                        // 3. Display the fetched data dynamically
+                        resultDiv.innerHTML = `
+                            <h3 style="text-align:center; color:#007bff;">${city.toUpperCase()}</h3>
+                            <p><strong>Temperature:</strong> ${weather.temperature}</p>
+                            <p><strong>Humidity:</strong> ${weather.humidity}</p>
+                            <p><strong>Condition:</strong> ${weather.condition}</p>
+                        `;
+                    } else {
+                        resultDiv.innerHTML = `<span class='error'>City '${city}' not found in our local database.</span>`;
+                    }
+                })
+                .catch(error => {
+                    resultDiv.innerHTML = `<span class='error'>Error: ${error.message}.<br><br><small>Note: AJAX requires a local web server (like Live Server in VS Code) to read local JSON files.</small></span>`;
+                });
+        }
+    </script>
+</body>
+</html>

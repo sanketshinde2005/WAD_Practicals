@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pune Institute of Computer Technology</title>
+    <!-- Bootstrap 5 CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+
+    <!-- Navigation Bar (Top Navbar) -->
+    <!-- Collapses on mobile screens into a toggle menu -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="#">Pune Institute of Computer Technology</a>
+            
+            <!-- Hamburger menu button for mobile -->
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            
+            <!-- Navbar Links -->
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="#">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">Welcome</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#achievements">Our Achievements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#toppers">Year-Wise Toppers</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content Container -->
+    <div class="container my-5">
+        
+        <!-- Welcome Section -->
+        <div class="mb-5 text-center" id="about">
+            <h1 class="display-4 fw-bold">Welcome to Pune Institute of Computer Technology</h1>
+            <p class="lead mt-3 mx-auto" style="max-width: 800px;">
+                Established with a vision to impart quality education in the field of engineering, PICT has consistently been ranked among the top institutions. We are committed to fostering an environment of academic excellence, research, and holistic development.
+            </p>
+        </div>
+
+        <!-- Achievements Section -->
+        <div class="mb-5 text-center bg-light p-4 rounded shadow-sm" id="achievements">
+            <h2 class="text-primary mb-4">Our Achievements</h2>
+            <div class="row text-start justify-content-center">
+                <div class="col-md-5 mb-3">
+                    <ul class="list-group list-group-flush bg-transparent">
+                        <li class="list-group-item bg-transparent border-0"><i class="text-success me-2 fw-bold">✓</i> Ranked 1st in the University for 5 consecutive years.</li>
+                        <li class="list-group-item bg-transparent border-0"><i class="text-success me-2 fw-bold">✓</i> 100% placement record for eligible students.</li>
+                    </ul>
+                </div>
+                <div class="col-md-5 mb-3">
+                    <ul class="list-group list-group-flush bg-transparent">
+                        <li class="list-group-item bg-transparent border-0"><i class="text-success me-2 fw-bold">✓</i> Accredited with 'A+' grade by NAAC.</li>
+                        <li class="list-group-item bg-transparent border-0"><i class="text-success me-2 fw-bold">✓</i> State-of-the-art research labs funded by top tier companies.</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <h3 class="text-center mb-4" id="toppers">Year-Wise Toppers</h3>
+        
+        <!-- Toppers' Statistics (Cards) -->
+        <!-- Responsive grid: 1 column on mobile (col-12), 2 columns on small tablets (col-sm-6), 3 columns on desktop (col-md-4) -->
+        <div class="row g-4">
+            
+            <!-- Topper 1 (2023) -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card h-100 shadow-sm text-center border-primary">
+                    <img src="https://via.placeholder.com/150" class="card-img-top p-3 rounded-circle w-50 mx-auto" alt="Topper 2023 Photo">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Alice Smith</h5>
+                        <p class="card-text mb-1"><strong>Year:</strong> 2023</p>
+                        <p class="card-text mb-1"><strong>Department:</strong> Computer Engineering</p>
+                        <p class="card-text text-success fw-bold mt-2">Percentage: 98.5%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topper 2 (2022) -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card h-100 shadow-sm text-center border-primary">
+                    <img src="https://via.placeholder.com/150" class="card-img-top p-3 rounded-circle w-50 mx-auto" alt="Topper 2022 Photo">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Bob Johnson</h5>
+                        <p class="card-text mb-1"><strong>Year:</strong> 2022</p>
+                        <p class="card-text mb-1"><strong>Department:</strong> Information Technology</p>
+                        <p class="card-text text-success fw-bold mt-2">Percentage: 97.2%</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Topper 3 (2021) -->
+            <div class="col-12 col-sm-6 col-md-4">
+                <div class="card h-100 shadow-sm text-center border-primary">
+                    <img src="https://via.placeholder.com/150" class="card-img-top p-3 rounded-circle w-50 mx-auto" alt="Topper 2021 Photo">
+                    <div class="card-body">
+                        <h5 class="card-title text-primary">Charlie Brown</h5>
+                        <p class="card-text mb-1"><strong>Year:</strong> 2021</p>
+                        <p class="card-text mb-1"><strong>Department:</strong> Electronics & Telecom</p>
+                        <p class="card-text text-success fw-bold mt-2">Percentage: 96.8%</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <!-- Includes address, contact, and social links -->
+    <footer class="bg-dark text-white text-center py-4 mt-5">
+        <div class="container">
+            <h5 class="mb-2">Pune Institute of Computer Technology (XYZ College)</h5>
+            <p class="mb-1 text-light">Survey No. 27, Near Trimurti Chowk, Dhankawadi, Pune, Maharashtra 411043</p>
+            <p class="mb-2 text-light">Phone: +91 123 456 7890 | Email: info@pict.edu</p>
+            
+            <!-- Social Media Links -->
+            <div class="mt-3">
+                <a href="#" class="text-white text-decoration-none mx-2 hover-opacity">Facebook</a> | 
+                <a href="#" class="text-white text-decoration-none mx-2">Twitter</a> | 
+                <a href="#" class="text-white text-decoration-none mx-2">LinkedIn</a>
+            </div>
+            
+            <p class="mt-3 mb-0 small text-secondary">&copy; 2024 Pune Institute of Computer Technology. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap 5 JS Bundle (includes Popper.js for mobile navbar toggle) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

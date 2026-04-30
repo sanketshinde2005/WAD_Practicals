@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<!-- ng-app directive initializes the AngularJS application -->
+<html lang="en" ng-app="todoApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AngularJS To-Do List</title>
+    
+    <!-- Load AngularJS from CDN (Easiest approach for practical exams) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; max-width: 500px; margin: auto; background: #f4f4f4; }
+        .container { background: white; padding: 20px; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
+        .task-list { list-style: none; padding: 0; }
+        .task-item { display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 10px; border: 1px solid #ddd; background: #fafafa; }
+        .edit-input { width: 60%; padding: 5px; }
+        input[type="text"] { padding: 8px; width: 70%; }
+        button { padding: 8px 12px; cursor: pointer; border: none; border-radius: 4px; color: white; }
+        .btn-add { background: #28a745; }
+        .btn-edit { background: #007bff; }
+        .btn-delete { background: #dc3545; }
+    </style>
+</head>
+
+<!-- ng-controller attaches the controller logic to this part of the DOM -->
+<body ng-controller="TodoController">
+
+    <div class="container">
+        <h2>AngularJS To-Do List</h2>
+
+        <!-- Add Task Section -->
+        <div>
+            <!-- Two-way binding: ng-model binds the input value to the $scope.newTask variable -->
+            <input type="text" ng-model="newTask" placeholder="Enter a new task...">
+            <button class="btn-add" ng-click="addTask()">Add</button>
+        </div>
+
+        <ul class="task-list">
+            <!-- ng-repeat loops through the tasks array -->
+            <li class="task-item" ng-repeat="task in tasks track by $index">
+                
+                <!-- VIEW MODE: Shows when not editing -->
+                <span ng-hide="task.editing">{{ task.name }}</span>
+                
+                <!-- EDIT MODE: Shows when editing -->
+                <!-- Two-way binding shines here: changing this input instantly updates the task.name in the array! -->
+                <input type="text" class="edit-input" ng-model="task.name" ng-show="task.editing">
+
+                <div>
+                    <!-- Toggle Edit Mode -->
+                    <button class="btn-edit" ng-click="task.editing = !task.editing">
+                        {{ task.editing ? 'Save' : 'Edit' }}
+                    </button>
+                    
+                    <!-- Delete Button -->
+                    <button class="btn-delete" ng-click="deleteTask($index)">Delete</button>
+                </div>
+            </li>
+        </ul>
+    </div>
+
+    <script>
+        // Define the Angular Module
+        var app = angular.module('todoApp', []);
+
+        // Define the Controller
+        app.controller('TodoController', function($scope) {
+            
+            // Initial Array of tasks
+            $scope.tasks = [
+                { name: 'Study for Practical Exam', editing: false },
+                { name: 'Understand Two-Way Binding', editing: false }
+            ];
+
+            // Method to Add a Task
+            $scope.addTask = function() {
+                if ($scope.newTask) {
+                    $scope.tasks.push({ name: $scope.newTask, editing: false });
+                    // Clearing the model automatically clears the input box on screen!
+                    $scope.newTask = ''; 
+                }
+            };
+
+            // Method to Delete a Task
+            $scope.deleteTask = function(index) {
+                $scope.tasks.splice(index, 1);
+            };
+
+            // Note: The "Edit" logic requires ZERO JavaScript function writing.
+            // When we click "Edit", task.editing becomes true, showing the input box.
+            // Because of ng-model="task.name", anything typed in the box instantly 
+            // updates the array data. Clicking "Save" just hides the box again!
+        });
+    </script>
+</body>
+</html>

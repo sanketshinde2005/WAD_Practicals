@@ -1,0 +1,75 @@
+/* Basic page styling */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header styling */
+header {
+    background-color: #ff6347; /* Tomato red color */
+    color: white;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Main container to center content */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+/* Section specific styling */
+.intro {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+h2, h3 {
+    color: #d2691e; /* Chocolate color for headings */
+}
+
+/* Flexbox to display top dishes and cuisines side-by-side */
+.details {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.box {
+    background: #fff8dc; /* Cornsilk color */
+    padding: 15px;
+    border-radius: 5px;
+    width: 40%;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Table styling */
+table {
+    width: 100%;
+    border-collapse: collapse; /* Removes double borders */
+    margin-top: 15px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #ff6347;
+    color: white;
+}
+
+/* Image styling inside the table */
+td img {
+    border-radius: 5px;
+    display: block;
+}

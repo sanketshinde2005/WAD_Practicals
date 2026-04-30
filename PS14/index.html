@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Data from Node API</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background-color: #f0f2f5;
+            max-width: 600px;
+            margin: auto;
+        }
+        h2 { color: #333; text-align: center; }
+        ul { 
+            list-style-type: none; 
+            padding: 0; 
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        li { 
+            padding: 15px 20px; 
+            border-bottom: 1px solid #eee; 
+            display: flex;
+            justify-content: space-between;
+        }
+        li:last-child { border-bottom: none; }
+        .role-badge {
+            background-color: #007bff;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 12px;
+            font-size: 0.8em;
+        }
+        .error { color: red; text-align: center; padding: 20px; }
+    </style>
+</head>
+<body>
+
+    <h2>User Directory</h2>
+    
+    <!-- The list container -->
+    <ul id="user-list">
+        <li style="justify-content: center; color: gray;">Loading data from Node.js server...</li>
+    </ul>
+
+    <script>
+        // 1. Use the Fetch API to make an AJAX request to our Node.js server
+        // Using the absolute URL http://localhost:3000 ensures it works even if you open this file with Live Server
+        fetch('http://localhost:3000/api/users')
+            .then(response => {
+                if (!response.ok) throw new Error("Network response was not ok");
+                return response.json(); // Parse the JSON data sent by the server
+            })
+            .then(users => {
+                const listContainer = document.getElementById('user-list');
+                listContainer.innerHTML = ''; // Clear the "Loading..." text
+                
+                // 2. Loop through the array of users and dynamically create HTML
+                users.forEach(user => {
+                    const li = document.createElement('li');
+                    
+                    li.innerHTML = `
+                        <div>
+                            <strong>${user.name}</strong><br>
+                            <small style="color: gray;">${user.email}</small>
+                        </div>
+                        <div>
+                            <span class="role-badge">${user.role}</span>
+                        </div>
+                    `;
+                    
+                    // Add the list item to the UI
+                    listContainer.appendChild(li);
+                });
+            })
+            .catch(error => {
+                const listContainer = document.getElementById('user-list');
+                listContainer.innerHTML = `<li class="error">Error loading data: Ensure the Node.js server is running!</li>`;
+                console.error("Fetch error:", error);
+            });
+    </script>
+</body>
+</html>

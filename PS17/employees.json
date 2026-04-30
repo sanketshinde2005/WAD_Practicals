@@ -1,0 +1,26 @@
+[
+    { 
+        "id": 1, 
+        "name": "John Doe", 
+        "designation": "Software Engineer", 
+        "department": "Engineering", 
+        "salary": "$90,000", 
+        "image": "https://via.placeholder.com/100/007bff/ffffff?text=John" 
+    },
+    { 
+        "id": 2, 
+        "name": "Jane Smith", 
+        "designation": "Product Manager", 
+        "department": "Product", 
+        "salary": "$110,000", 
+        "image": "https://via.placeholder.com/100/28a745/ffffff?text=Jane" 
+    },
+    { 
+        "id": 3, 
+        "name": "Mike Johnson", 
+        "designation": "HR Specialist", 
+        "department": "Human Resources", 
+        "salary": "$65,000", 
+        "image": "https://via.placeholder.com/100/dc3545/ffffff?text=Mike" 
+    }
+]

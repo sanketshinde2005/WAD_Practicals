@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Facebook - Log In or Sign Up</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #edf0f5;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        /* Top Header Navigation Styling */
+        .fb-header {
+            background-color: #3b5998;
+            color: white;
+            padding: 15px 0 10px 0;
+        }
+        .fb-logo {
+            font-size: 2.2rem;
+            font-weight: bold;
+            margin: 0;
+            letter-spacing: -1px;
+            color: white;
+            text-decoration: none;
+            font-family: Arial, sans-serif;
+        }
+        .fb-logo:hover {
+            color: white;
+        }
+        
+        /* Inline Login Form Styling */
+        .login-label {
+            font-size: 0.75rem;
+            margin-bottom: 2px;
+            color: white;
+        }
+        .login-input {
+            font-size: 0.8rem;
+            padding: 3px 5px;
+            height: 24px;
+            border-radius: 0;
+            border: 1px solid #1d2a5b;
+            width: 150px;
+        }
+        .login-btn {
+            background-color: #4267b2;
+            border: 1px solid #29487d;
+            color: white;
+            font-size: 0.75rem;
+            font-weight: bold;
+            padding: 2px 10px;
+            height: 24px;
+            cursor: pointer;
+        }
+        .login-link {
+            font-size: 0.7rem;
+            color: #9cb4d8;
+            text-decoration: none;
+        }
+        .login-link:hover {
+            text-decoration: underline;
+        }
+
+        /* Main Body Content Styling */
+        .content-area {
+            padding-top: 40px;
+        }
+        .left-heading {
+            font-size: 1.6rem;
+            color: #0e385f;
+            line-height: 1.3;
+            margin-bottom: 20px;
+            letter-spacing: -0.5px;
+        }
+        
+        /* Right Side Signup Styling */
+        .signup-heading {
+            font-size: 2.3rem;
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 0;
+            letter-spacing: -1px;
+        }
+        .signup-subheading {
+            font-size: 1.1rem;
+            color: #1c1e21;
+            margin-bottom: 20px;
+        }
+        .signup-input {
+            border-radius: 5px;
+            padding: 8px 10px;
+            font-size: 1rem;
+            border: 1px solid #bdc7d8;
+            margin-bottom: 10px;
+        }
+        .signup-btn {
+            background: linear-gradient(#67ae55, #578843);
+            background-color: #69a74e;
+            box-shadow: inset 0 1px 1px #a4e388;
+            border: 1px solid #3b6e22;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+            padding: 5px 30px;
+            border-radius: 5px;
+            text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+        }
+        .signup-btn:hover {
+            background: linear-gradient(#79bc64, #578843);
+            color: white;
+        }
+        .terms-text {
+            font-size: 0.7rem;
+            color: #777;
+            font-weight: bold;
+            line-height: 1.3;
+            width: 80%;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Dark Blue Header Area -->
+    <div class="fb-header">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-md-6">
+                    <a href="#" class="fb-logo">facebook</a>
+                </div>
+                
+                <!-- Login Form -->
+                <div class="col-md-6">
+                    <form class="d-flex justify-content-end align-items-start gap-3">
+                        <!-- Email Field -->
+                        <div class="d-flex flex-column">
+                            <label class="login-label">Email or Username</label>
+                            <input type="text" class="form-control login-input">
+                            <div class="form-check mt-1 ms-1 p-0 d-flex align-items-center">
+                                <input class="form-check-input m-0 me-1" type="checkbox" id="keepLoggedIn" style="transform: scale(0.8);">
+                                <label class="form-check-label login-link" for="keepLoggedIn" style="color: #9cb4d8;">Keep me logged in</label>
+                            </div>
+                        </div>
+                        
+                        <!-- Password Field -->
+                        <div class="d-flex flex-column">
+                            <label class="login-label">Password</label>
+                            <input type="password" class="form-control login-input">
+                            <a href="#" class="login-link mt-1">Forgotten my password!</a>
+                        </div>
+                        
+                        <!-- Login Button -->
+                        <div class="d-flex flex-column pt-3">
+                            <button type="submit" class="login-btn">login</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <div class="container content-area">
+        <div class="row">
+            
+            <!-- Left Side: Text and Image -->
+            <div class="col-md-7 pe-4">
+                <div class="left-heading">
+                    Facebook is useless without friends.<br>Make More Friends.
+                </div>
+                
+                <!-- Map Graphic Container -->
+                <div class="bg-white p-3 rounded" style="box-shadow: 0 0 5px rgba(0,0,0,0.05);">
+                    <h5 class="fw-bold" style="color: #0e385f;">Facebook helps you connect and share<br>with the people in your life.</h5>
+                    <p class="text-center" style="color: #3b5998; font-family: 'Comic Sans MS', cursive; font-size: 1.1rem; margin-top: -10px;">interesting, engaging, fun, like-able content</p>
+                    
+                    <!-- Simulating the map using a placeholder, since we don't have the exact image asset -->
+                    <div class="text-center mt-3 position-relative">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c4/World_map_blank_without_borders.svg/800px-World_map_blank_without_borders.svg.png" alt="World Map" class="img-fluid opacity-25">
+                        <p class="position-absolute top-50 start-50 translate-middle text-muted small fw-bold">
+                            [ Map graphic representation ]
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Side: Signup Form -->
+            <div class="col-md-5 ps-4">
+                <h1 class="signup-heading">Create an Account</h1>
+                <p class="signup-subheading">It's free and always will be.</p>
+
+                <form>
+                    <!-- Name Row -->
+                    <div class="row g-2">
+                        <div class="col">
+                            <input type="text" class="form-control signup-input" placeholder="Firstname">
+                        </div>
+                        <div class="col">
+                            <input type="text" class="form-control signup-input" placeholder="Lastname">
+                        </div>
+                    </div>
+                    
+                    <!-- Email and Password Rows -->
+                    <input type="email" class="form-control signup-input" placeholder="Email">
+                    <input type="email" class="form-control signup-input" placeholder="Re-enter email">
+                    <input type="password" class="form-control signup-input" placeholder="Password">
+                    
+                    <!-- Date Picker -->
+                    <div style="width: 220px;" class="mb-3">
+                        <input type="date" class="form-control signup-input text-muted" value="2000-01-01">
+                    </div>
+
+                    <!-- Gender Radio Buttons -->
+                    <div class="mb-4 d-flex align-items-center" style="color: #1d2a5b; font-weight: bold; font-size: 1.1rem;">
+                        <div class="form-check me-4">
+                            <input class="form-check-input" type="radio" name="gender" id="male">
+                            <label class="form-check-label" for="male">Male</label>
+                        </div>
+                        <div class="form-check">
+                            <input class="form-check-input" type="radio" name="gender" id="female">
+                            <label class="form-check-label" for="female">Female</label>
+                        </div>
+                    </div>
+
+                    <!-- Terms Text -->
+                    <p class="terms-text">By clicking create an account, you agree to our Terms.</p>
+                    
+                    <!-- Signup Button -->
+                    <button type="submit" class="btn signup-btn mt-2 mb-4">Signup</button>
+
+                    <!-- Footer Link -->
+                    <div class="pt-3" style="border-top: 1px solid #ccc;">
+                        <a href="#" class="text-decoration-none fw-bold" style="color: #3b5998; font-size: 0.9rem;">Create a page for you.</a>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

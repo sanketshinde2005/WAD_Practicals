@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>E-commerce Product Listing</title>
+    <!-- Bootstrap 5 CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <div class="container my-5">
+        <h1 class="text-center mb-5">Our Products</h1>
+
+        <!-- Category Filter Dropdown -->
+        <div class="d-flex justify-content-end mb-4">
+            <div class="dropdown">
+                <button class="btn btn-primary dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                    Filter by Category
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="categoryDropdown">
+                    <li><a class="dropdown-item" href="#" onclick="filterProducts('all')">All Products</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterProducts('electronics')">Electronics</a></li>
+                    <li><a class="dropdown-item" href="#" onclick="filterProducts('clothing')">Clothing</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Responsive Product Grid -->
+        <div class="row g-4" id="productGrid">
+            
+            <!-- Product 1 (Electronics) -->
+            <div class="col-12 col-md-6 col-lg-4 product-card electronics">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://via.placeholder.com/300x200?text=Laptop" class="card-img-top" alt="Gaming Laptop">
+                    <div class="card-body">
+                        <h5 class="card-title">Gaming Laptop</h5>
+                        <p class="card-text text-muted">High-performance laptop for gaming.</p>
+                        <h5 class="text-primary">$1,200</h5>
+                    </div>
+                    <div class="card-footer bg-white border-top-0">
+                        <button class="btn btn-outline-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 2 (Clothing) -->
+            <div class="col-12 col-md-6 col-lg-4 product-card clothing">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://via.placeholder.com/300x200?text=T-Shirt" class="card-img-top" alt="Cotton T-Shirt">
+                    <div class="card-body">
+                        <h5 class="card-title">Cotton T-Shirt</h5>
+                        <p class="card-text text-muted">Comfortable 100% cotton t-shirt.</p>
+                        <h5 class="text-primary">$20</h5>
+                    </div>
+                    <div class="card-footer bg-white border-top-0">
+                        <button class="btn btn-outline-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Product 3 (Electronics) -->
+            <div class="col-12 col-md-6 col-lg-4 product-card electronics">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://via.placeholder.com/300x200?text=Headphones" class="card-img-top" alt="Wireless Headphones">
+                    <div class="card-body">
+                        <h5 class="card-title">Wireless Headphones</h5>
+                        <p class="card-text text-muted">Noise-cancelling over-ear headphones.</p>
+                        <h5 class="text-primary">$150</h5>
+                    </div>
+                    <div class="card-footer bg-white border-top-0">
+                        <button class="btn btn-outline-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Product 4 (Clothing) -->
+            <div class="col-12 col-md-6 col-lg-4 product-card clothing">
+                <div class="card h-100 shadow-sm">
+                    <img src="https://via.placeholder.com/300x200?text=Jeans" class="card-img-top" alt="Blue Jeans">
+                    <div class="card-body">
+                        <h5 class="card-title">Blue Jeans</h5>
+                        <p class="card-text text-muted">Classic fit denim jeans.</p>
+                        <h5 class="text-primary">$45</h5>
+                    </div>
+                    <div class="card-footer bg-white border-top-0">
+                        <button class="btn btn-outline-primary w-100">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Bootstrap 5 JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Minimal JavaScript for Filtering -->
+    <script>
+        function filterProducts(category) {
+            const products = document.querySelectorAll('.product-card');
+            
+            products.forEach(product => {
+                if (category === 'all' || product.classList.contains(category)) {
+                    product.style.display = 'block'; // Show product
+                } else {
+                    product.style.display = 'none';  // Hide product
+                }
+            });
+
+            // Update dropdown button text
+            const dropdownBtn = document.getElementById('categoryDropdown');
+            dropdownBtn.innerText = category === 'all' ? 'All Products' : category.charAt(0).toUpperCase() + category.slice(1);
+        }
+    </script>
+</body>
+</html>

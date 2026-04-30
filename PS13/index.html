@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="authApp">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Angular User App (Register, Login, Profile)</title>
+    <!-- Load AngularJS via CDN for minimal exam setup -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            background: #eef2f5; 
+            display: flex; 
+            justify-content: center; 
+            padding-top: 50px; 
+        }
+        .card { 
+            background: white; 
+            padding: 30px; 
+            border-radius: 8px; 
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); 
+            width: 320px; 
+            text-align: center; 
+        }
+        input { 
+            width: 90%; 
+            padding: 10px; 
+            margin: 10px 0; 
+            border: 1px solid #ccc; 
+            border-radius: 4px; 
+        }
+        .btn-primary { 
+            width: 100%; 
+            padding: 10px; 
+            background: #007bff; 
+            color: white; 
+            border: none; 
+            border-radius: 4px; 
+            cursor: pointer; 
+            font-size: 16px;
+        }
+        .btn-link { 
+            background: none; 
+            color: #007bff; 
+            border: none;
+            text-decoration: underline; 
+            padding: 0; 
+            margin-top: 15px; 
+            cursor: pointer;
+        }
+        .error-text { color: red; font-size: 0.9em; margin-bottom: 10px; }
+    </style>
+</head>
+<!-- Attach Main Controller to the body -->
+<body ng-controller="AuthController">
+
+    <!-- 1. REGISTRATION COMPONENT (Visible when view === 'register') -->
+    <div class="card" ng-show="view === 'register'">
+        <h2 style="color: #28a745;">Register</h2>
+        
+        <form ng-submit="register()">
+            <!-- Two-way binding to regUser object -->
+            <input type="text" ng-model="regUser.name" placeholder="Full Name" required>
+            <input type="email" ng-model="regUser.email" placeholder="Email Address" required>
+            <input type="password" ng-model="regUser.password" placeholder="Password" required>
+            <button type="submit" class="btn-primary" style="background: #28a745;">Register</button>
+        </form>
+        
+        <div class="error-text">{{ regError }}</div>
+        <button class="btn-link" ng-click="switchView('login')">Already have an account? Login</button>
+    </div>
+
+    <!-- 2. LOGIN COMPONENT (Visible when view === 'login') -->
+    <div class="card" ng-show="view === 'login'">
+        <h2 style="color: #007bff;">Login</h2>
+        
+        <form ng-submit="login()">
+            <!-- Two-way binding to loginUser object -->
+            <input type="email" ng-model="loginUser.email" placeholder="Email Address" required>
+            <input type="password" ng-model="loginUser.password" placeholder="Password" required>
+            <button type="submit" class="btn-primary">Login</button>
+        </form>
+        
+        <div class="error-text">{{ loginError }}</div>
+        <button class="btn-link" ng-click="switchView('register')">Need an account? Register</button>
+    </div>
+
+    <!-- 3. PROFILE COMPONENT (Visible when view === 'profile') -->
+    <div class="card" ng-show="view === 'profile'">
+        <h2>User Profile</h2>
+        
+        <!-- Profile Data display -->
+        <img src="https://via.placeholder.com/100" style="border-radius: 50%; margin: 15px 0;">
+        <h3 style="margin: 0; color: #333;">{{ loggedInUserData.name }}</h3>
+        <p style="color: gray; margin-top: 5px;">{{ loggedInUserData.email }}</p>
+        
+        <!-- Logout Button -->
+        <button class="btn-primary" ng-click="logout()" style="background: #dc3545; margin-top: 20px;">Logout</button>
+    </div>
+
+    <script>
+        // Initialize the Angular application
+        var app = angular.module('authApp', []);
+
+        // Define the Controller
+        app.controller('AuthController', function($scope) {
+            
+            // State variable to track which "Component" to show
+            $scope.view = 'register';
+            
+            // Simulating a database to store registered users
+            $scope.usersDatabase = [];
+            
+            // Initialize data models
+            $scope.regUser = {};
+            $scope.loginUser = {};
+            $scope.loggedInUserData = null; // Will hold the profile data
+
+            // Helper function to switch views cleanly
+            $scope.switchView = function(viewName) {
+                $scope.view = viewName;
+                $scope.regError = '';
+                $scope.loginError = '';
+            };
+
+            // 1. Register Function
+            $scope.register = function() {
+                // Check if email is already taken
+                var exists = $scope.usersDatabase.find(u => u.email === $scope.regUser.email);
+                if (exists) {
+                    $scope.regError = "This email is already registered!";
+                    return;
+                }
+                
+                // Save user to our local "database"
+                $scope.usersDatabase.push({
+                    name: $scope.regUser.name,
+                    email: $scope.regUser.email,
+                    password: $scope.regUser.password
+                });
+                
+                // Clear the form model
+                $scope.regUser = {};
+                alert("Registration successful! You can now login.");
+                
+                // Switch to login screen
+                $scope.switchView('login');
+            };
+
+            // 2. Login Function
+            $scope.login = function() {
+                // Find a matching user
+                var user = $scope.usersDatabase.find(u => 
+                    u.email === $scope.loginUser.email && 
+                    u.password === $scope.loginUser.password
+                );
+
+                if (user) {
+                    // Pass the data to the Profile Component variables
+                    $scope.loggedInUserData = user;
+                    $scope.loginUser = {}; // Clear the form
+                    $scope.switchView('profile'); // Switch to profile screen
+                } else {
+                    $scope.loginError = "Invalid email or password!";
+                }
+            };
+
+            // 3. Logout Function
+            $scope.logout = function() {
+                $scope.loggedInUserData = null;
+                $scope.switchView('login');
+            };
+        });
+    </script>
+</body>
+</html>

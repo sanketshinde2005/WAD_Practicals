@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Catalog</title>
+    <style>
+        body { 
+            font-family: Arial, sans-serif; 
+            padding: 20px; 
+            background: #f4f4f4; 
+        }
+        h2 { text-align: center; color: #333; }
+        
+        /* Flexbox for the grid */
+        .product-grid { 
+            display: flex; 
+            gap: 20px; 
+            flex-wrap: wrap; 
+            justify-content: center;
+        }
+        
+        /* Individual product card styling */
+        .product-card { 
+            background: white; 
+            padding: 15px; 
+            border-radius: 8px; 
+            width: 200px; 
+            text-align: center; 
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1); 
+        }
+        .product-card img { 
+            max-width: 100%; 
+            border-radius: 4px; 
+        }
+        .product-name {
+            font-size: 1.1em;
+            margin: 10px 0 5px 0;
+            color: #333;
+        }
+        .price { 
+            color: #28a745; 
+            font-weight: bold; 
+            font-size: 1.2em; 
+            margin: 0;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Hardware Product Catalog</h2>
+    
+    <div id="product-grid" class="product-grid">
+        <p style="color: gray;">Loading products from Node API...</p>
+    </div>
+
+    <script>
+        // Fetch products from our Node.js API
+        // Absolute URL ensures it works via Live Server or direct file open
+        fetch('http://localhost:3001/api/products')
+            .then(response => {
+                if (!response.ok) throw new Error("Server error");
+                return response.json(); // Parse the JSON from the server
+            })
+            .then(products => {
+                const grid = document.getElementById('product-grid');
+                grid.innerHTML = ''; // Clear the "Loading..." message
+
+                // Loop through the data and generate HTML cards dynamically
+                products.forEach(product => {
+                    const card = document.createElement('div');
+                    card.className = 'product-card';
+                    
+                    card.innerHTML = `
+                        <img src="${product.image}" alt="${product.name}">
+                        <h3 class="product-name">${product.name}</h3>
+                        <p class="price">$${product.price.toFixed(2)}</p>
+                    `;
+                    
+                    grid.appendChild(card);
+                });
+            })
+            .catch(error => {
+                document.getElementById('product-grid').innerHTML = 
+                    '<p style="color:red;">Error loading products. Please make sure you run `node server.js` in the PS15 folder!</p>';
+            });
+    </script>
+
+</body>
+</html>

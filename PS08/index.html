@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Registration Form</title>
+    <!-- Bootstrap 5 CSS via CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<!-- Main Container -->
+<div class="container my-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            
+            <!-- Form Card -->
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-primary text-white text-center py-3">
+                    <h3 class="mb-0">Event Registration</h3>
+                </div>
+                <div class="card-body p-4">
+                    
+                    <!-- Registration Form with Validation 
+                         The 'needs-validation' class and 'novalidate' attribute are used for custom Bootstrap validation. -->
+                    <form class="needs-validation" novalidate>
+                        
+                        <!-- Full Name: Floating Label + Tooltip + Validation -->
+                        <div class="form-floating mb-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Enter your full legal name as it appears on your ID.">
+                            <input type="text" class="form-control" id="fullName" placeholder="John Doe" required>
+                            <label for="fullName">Full Name</label>
+                            <div class="invalid-feedback">
+                                Please provide your full name.
+                            </div>
+                        </div>
+
+                        <!-- Email Address: Floating Label + Tooltip + Validation -->
+                        <div class="form-floating mb-3" data-bs-toggle="tooltip" data-bs-placement="right" title="We'll send your event tickets to this address.">
+                            <input type="email" class="form-control" id="emailAddress" placeholder="name@example.com" required>
+                            <label for="emailAddress">Email address</label>
+                            <div class="invalid-feedback">
+                                Please provide a valid email address.
+                            </div>
+                        </div>
+
+                        <!-- Phone Number: Floating Label + Tooltip + Validation (Using pattern for exactly 10 digits) -->
+                        <div class="form-floating mb-3" data-bs-toggle="tooltip" data-bs-placement="right" title="Enter a 10-digit mobile number without country code.">
+                            <input type="tel" class="form-control" id="phoneNumber" placeholder="1234567890" pattern="[0-9]{10}" required>
+                            <label for="phoneNumber">Phone Number</label>
+                            <div class="invalid-feedback">
+                                Please provide a valid 10-digit phone number.
+                            </div>
+                        </div>
+
+                        <!-- Ticket Type Dropdown: Floating Label + Validation -->
+                        <div class="form-floating mb-4" data-bs-toggle="tooltip" data-bs-placement="right" title="Choose the type of access you want.">
+                            <select class="form-select" id="ticketType" required>
+                                <option value="" selected disabled>Select ticket type</option>
+                                <option value="general">General Admission</option>
+                                <option value="vip">VIP Access</option>
+                                <option value="student">Student Pass</option>
+                            </select>
+                            <label for="ticketType">Ticket Type</label>
+                            <div class="invalid-feedback">
+                                Please select a ticket type.
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid mt-2">
+                            <button class="btn btn-primary btn-lg" type="submit">Register Now</button>
+                        </div>
+
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- Bootstrap 5 JS Bundle with Popper (Popper is required for Tooltips to function) -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<!-- Minimal Custom JavaScript -->
+<script>
+    // 1. Initialize Bootstrap Tooltips
+    // Tooltips are opt-in for performance reasons, so we must initialize them manually.
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'))
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+      return new bootstrap.Tooltip(tooltipTriggerEl)
+    })
+
+    // 2. Form Validation Logic
+    // This script disables form submission if there are invalid fields and displays error messages.
+    ;(function () {
+      'use strict'
+      
+      // Fetch all the forms we want to apply custom Bootstrap validation styles to
+      var forms = document.querySelectorAll('.needs-validation')
+      
+      // Loop over them and prevent submission
+      Array.prototype.slice.call(forms)
+        .forEach(function (form) {
+          form.addEventListener('submit', function (event) {
+            // Check if form inputs are valid
+            if (!form.checkValidity()) {
+              event.preventDefault() // Stop submission
+              event.stopPropagation() // Stop event bubbling
+            }
+            
+            // Add 'was-validated' class to trigger Bootstrap's valid/invalid CSS styles
+            form.classList.add('was-validated')
+          }, false)
+        })
+    })()
+</script>
+
+</body>
+</html>

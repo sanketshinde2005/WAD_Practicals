@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PICT Student Clubs</title>
+    
+    <!-- Load jQuery Mobile CSS & JS from CDN -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+    <!-- Minimal Custom CSS for formatting images and achievements block -->
+    <style>
+        .club-img { 
+            width: 100%; 
+            height: auto; 
+            border-radius: 8px; 
+            margin-bottom: 15px; 
+        }
+        .achievements { 
+            background-color: #f9f9f9; 
+            padding: 15px; 
+            border-left: 5px solid #3388cc; 
+            border-radius: 4px;
+            margin-top: 20px;
+        }
+        .achievements ul { margin: 5px 0 0 0; padding-left: 20px; }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================== -->
+    <!-- HOME PAGE: List of Clubs                       -->
+    <!-- ============================================== -->
+    <div data-role="page" id="home">
+        <div data-role="header" data-theme="b">
+            <h1>PICT Clubs</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <h2>Extracurricular Activities</h2>
+            
+            <!-- jQuery Mobile List View with Thumbnails -->
+            <ul data-role="listview" data-inset="true">
+                <li><a href="#coding" data-transition="slide">
+                    <!-- Static thumbnail image -->
+                    <img src="https://via.placeholder.com/80/000000/ffffff?text=Code">
+                    <h2>Coding Club</h2>
+                    <p>PICT IEEE Student Branch (PISB)</p>
+                </a></li>
+                
+                <li><a href="#robotics" data-transition="slide">
+                    <img src="https://via.placeholder.com/80/ff0000/ffffff?text=Robo">
+                    <h2>Robotics Club</h2>
+                    <p>PICT Robotics Study Circle</p>
+                </a></li>
+                
+                <li><a href="#dance" data-transition="slide">
+                    <img src="https://via.placeholder.com/80/ff00ff/ffffff?text=Dance">
+                    <h2>Dance Club</h2>
+                    <p>PICT Art Circle</p>
+                </a></li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- CLUB PAGE 1: Coding Club                       -->
+    <!-- ============================================== -->
+    <div data-role="page" id="coding">
+        <div data-role="header" data-theme="b">
+            <!-- Back button -->
+            <a href="#home" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>
+            <h1>Coding Club</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <!-- Static Banner Image -->
+            <img src="https://via.placeholder.com/400x200/000000/ffffff?text=Coding+Hackathon" class="club-img">
+            
+            <h2>PICT Coding Club (PISB)</h2>
+            <p><strong>Description:</strong> A community of passionate programmers aiming to foster a strong coding culture. We organize weekly contests, hackathons, and guest lectures on trending software technologies.</p>
+            
+            <div class="achievements">
+                <strong>Achievements:</strong>
+                <ul>
+                    <li>Winners of Smart India Hackathon 2023</li>
+                    <li>Organized Credenz Techfest with 5000+ participants</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- CLUB PAGE 2: Robotics Club                     -->
+    <!-- ============================================== -->
+    <div data-role="page" id="robotics">
+        <div data-role="header" data-theme="b">
+            <a href="#home" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>
+            <h1>Robotics Club</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="https://via.placeholder.com/400x200/ff0000/ffffff?text=RoboWars+Event" class="club-img">
+            
+            <h2>PICT Robotics Club</h2>
+            <p><strong>Description:</strong> The Robotics Club focuses on embedded systems, automation, and IoT. Students get hands-on experience building autonomous and manual robots.</p>
+            
+            <div class="achievements">
+                <strong>Achievements:</strong>
+                <ul>
+                    <li>1st Prize at IIT Bombay Techfest (Robowars)</li>
+                    <li>Developed an autonomous sanitization robot during COVID-19</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- CLUB PAGE 3: Dance Club                        -->
+    <!-- ============================================== -->
+    <div data-role="page" id="dance">
+        <div data-role="header" data-theme="b">
+            <a href="#home" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>
+            <h1>Dance Club</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="https://via.placeholder.com/400x200/ff00ff/ffffff?text=Dance+Performance" class="club-img">
+            
+            <h2>PICT Art Circle (Dance)</h2>
+            <p><strong>Description:</strong> The Dance Club represents the vibrant cultural side of PICT. We perform various styles including hip-hop, contemporary, and Indian classical dance forms.</p>
+            
+            <div class="achievements">
+                <strong>Achievements:</strong>
+                <ul>
+                    <li>Gold Medalists at Firodiya Karandak 2024</li>
+                    <li>Performed at international cultural exchange program</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

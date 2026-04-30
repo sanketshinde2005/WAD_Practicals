@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>My Portfolio</title>
+    
+    <!-- jQuery Mobile CDN -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+</head>
+<body>
+
+    <!-- ============================================== -->
+    <!-- PAGE 1: About Me                               -->
+    <!-- ============================================== -->
+    <div data-role="page" id="about">
+        <div data-role="header" data-theme="b">
+            <h1>My Portfolio</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#about" class="ui-btn-active ui-state-persist">About</a></li>
+                    <li><a href="#projects" data-transition="slide">Projects</a></li>
+                    <li><a href="#skills" data-transition="slide">Skills</a></li>
+                    <li><a href="#contact" data-transition="slide">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <h2>About Me</h2>
+            <img src="https://via.placeholder.com/120/3388cc/ffffff?text=Me" style="border-radius:50%; display:block; margin:0 auto 15px;">
+            <p>Hi! I'm a Computer Engineering student at PICT, Pune. I'm passionate about web development, open-source, and building cool applications that solve real-world problems.</p>
+        </div>
+        <div data-role="footer" data-position="fixed" data-theme="b">
+            <h4>&copy; 2025 My Portfolio</h4>
+        </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- PAGE 2: Projects                               -->
+    <!-- ============================================== -->
+    <div data-role="page" id="projects">
+        <div data-role="header" data-theme="b">
+            <h1>Projects</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#about" data-transition="slide" data-direction="reverse">About</a></li>
+                    <li><a href="#projects" class="ui-btn-active ui-state-persist">Projects</a></li>
+                    <li><a href="#skills" data-transition="slide">Skills</a></li>
+                    <li><a href="#contact" data-transition="slide">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <h2>My Projects</h2>
+            <!-- Collapsible set to show/hide project details -->
+            <div data-role="collapsibleset" data-theme="c" data-content-theme="d">
+                <div data-role="collapsible" data-collapsed="false">
+                    <h3>Weather App</h3>
+                    <p>A JavaScript weather application using AJAX to fetch real-time data from a local JSON repository.</p>
+                </div>
+                <div data-role="collapsible">
+                    <h3>E-Commerce Store</h3>
+                    <p>A responsive product catalog with category filters built using Bootstrap 5 cards and grid layout.</p>
+                </div>
+                <div data-role="collapsible">
+                    <h3>Student Database</h3>
+                    <p>A Node.js + Express + MongoDB backend for managing student marks with full CRUD operations.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- PAGE 3: Skills                                 -->
+    <!-- ============================================== -->
+    <div data-role="page" id="skills">
+        <div data-role="header" data-theme="b">
+            <h1>Skills</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#about" data-transition="slide" data-direction="reverse">About</a></li>
+                    <li><a href="#projects" data-transition="slide" data-direction="reverse">Projects</a></li>
+                    <li><a href="#skills" class="ui-btn-active ui-state-persist">Skills</a></li>
+                    <li><a href="#contact" data-transition="slide">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <h2>Technical Skills</h2>
+            <!-- jQuery Mobile List View -->
+            <ul data-role="listview" data-inset="true">
+                <li data-icon="star">HTML5 & CSS3</li>
+                <li data-icon="star">JavaScript & jQuery</li>
+                <li data-icon="star">Node.js & Express.js</li>
+                <li data-icon="star">MongoDB</li>
+                <li data-icon="star">Bootstrap 5</li>
+                <li data-icon="star">AngularJS</li>
+            </ul>
+        </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- PAGE 4: Contact Info                           -->
+    <!-- ============================================== -->
+    <div data-role="page" id="contact">
+        <div data-role="header" data-theme="b">
+            <h1>Contact</h1>
+            <div data-role="navbar">
+                <ul>
+                    <li><a href="#about" data-transition="slide" data-direction="reverse">About</a></li>
+                    <li><a href="#projects" data-transition="slide" data-direction="reverse">Projects</a></li>
+                    <li><a href="#skills" data-transition="slide" data-direction="reverse">Skills</a></li>
+                    <li><a href="#contact" class="ui-btn-active ui-state-persist">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div data-role="main" class="ui-content">
+            <h2>Contact Information</h2>
+            <ul data-role="listview" data-inset="true">
+                <li data-icon="mail"><a href="mailto:student@pict.edu">student@pict.edu</a></li>
+                <li data-icon="phone"><a href="tel:+919876543210">+91 98765 43210</a></li>
+                <li data-icon="home"><a href="#">Pune, Maharashtra, India</a></li>
+            </ul>
+            <a href="mailto:student@pict.edu" class="ui-btn ui-btn-b ui-corner-all" style="margin-top:20px;">Send me an Email</a>
+        </div>
+    </div>
+
+</body>
+</html>

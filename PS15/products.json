@@ -1,0 +1,7 @@
+[
+    { "id": 1, "name": "Wireless Mouse", "price": 25.99, "image": "https://via.placeholder.com/150?text=Mouse" },
+    { "id": 2, "name": "Gaming Keyboard", "price": 75.50, "image": "https://via.placeholder.com/150?text=Keyboard" },
+    { "id": 3, "name": "HD Monitor", "price": 199.99, "image": "https://via.placeholder.com/150?text=Monitor" },
+    { "id": 4, "name": "Webcam 1080p", "price": 45.00, "image": "https://via.placeholder.com/150?text=Webcam" },
+    { "id": 5, "name": "USB-C Hub", "price": 30.00, "image": "https://via.placeholder.com/150?text=USB+Hub" }
+]

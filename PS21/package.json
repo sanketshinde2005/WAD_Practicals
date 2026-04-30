@@ -1,0 +1,10 @@
+{
+  "name": "ps21-bookstore-api",
+  "version": "1.0.0",
+  "description": "Minimal Bookstore CRUD Backend",
+  "main": "server.js",
+  "dependencies": {
+    "express": "^4.18.2",
+    "mongodb": "^6.3.0"
+  }
+}

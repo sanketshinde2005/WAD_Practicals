@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Movie Reviews</title>
+    
+    <!-- jQuery Mobile CSS & JS from CDN for the mobile UI -->
+    <link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    
+    <style>
+        .poster { 
+            width: 100%; 
+            border-radius: 5px; 
+            margin-bottom: 10px; 
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        }
+        .genre { 
+            color: #777; 
+            font-style: italic; 
+            font-size: 0.9em; 
+            margin-top: -5px; 
+        }
+        .review-box { 
+            background: #fdfbf7; 
+            padding: 15px; 
+            border-left: 5px solid #ffcc00; 
+            margin-top: 15px; 
+            font-size: 0.95em; 
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ============================================== -->
+    <!-- HOME PAGE: Movie List                          -->
+    <!-- ============================================== -->
+    <div data-role="page" id="home">
+        <div data-role="header" data-theme="b">
+            <h1>Cine Review</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            
+            <!-- jQuery Mobile List View -->
+            <ul data-role="listview" data-inset="true">
+                <li><a href="#inception" data-transition="slide">
+                    <img src="https://via.placeholder.com/80x120/000000/ffffff?text=Inception">
+                    <h2>Inception</h2>
+                    <p>Sci-Fi / Thriller</p>
+                </a></li>
+                
+                <li><a href="#godfather" data-transition="slide">
+                    <img src="https://via.placeholder.com/80x120/333333/ffffff?text=Godfather">
+                    <h2>The Godfather</h2>
+                    <p>Crime / Drama</p>
+                </a></li>
+                
+                <li><a href="#interstellar" data-transition="slide">
+                    <img src="https://via.placeholder.com/80x120/111111/ffffff?text=Interstellar">
+                    <h2>Interstellar</h2>
+                    <p>Sci-Fi / Adventure</p>
+                </a></li>
+                
+                <li><a href="#darkknight" data-transition="slide">
+                    <img src="https://via.placeholder.com/80x120/222222/ffffff?text=Batman">
+                    <h2>The Dark Knight</h2>
+                    <p>Action / Crime</p>
+                </a></li>
+            </ul>
+            
+        </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- MOVIE PAGE 1: Inception                        -->
+    <!-- ============================================== -->
+    <div data-role="page" id="inception">
+        <div data-role="header" data-theme="b">
+            <a href="#home" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>
+            <h1>Inception</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="https://via.placeholder.com/400x300/000000/ffffff?text=Inception+Poster" class="poster">
+            <h2>Inception (2010)</h2>
+            <p class="genre">Genre: Sci-Fi / Thriller</p>
+            <p><strong>Summary:</strong> A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.</p>
+            
+            <div class="review-box">
+                <strong>Review:</strong> ⭐⭐⭐⭐⭐<br><br>
+                "A mind-bending masterpiece by Christopher Nolan. The visual effects and Hans Zimmer's score make this an unforgettable cinematic experience."
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- MOVIE PAGE 2: The Godfather                    -->
+    <!-- ============================================== -->
+    <div data-role="page" id="godfather">
+        <div data-role="header" data-theme="b">
+            <a href="#home" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>
+            <h1>The Godfather</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="https://via.placeholder.com/400x300/333333/ffffff?text=Godfather+Poster" class="poster">
+            <h2>The Godfather (1972)</h2>
+            <p class="genre">Genre: Crime / Drama</p>
+            <p><strong>Summary:</strong> The aging patriarch of an organized crime dynasty transfers control of his clandestine empire to his reluctant son.</p>
+            
+            <div class="review-box">
+                <strong>Review:</strong> ⭐⭐⭐⭐⭐<br><br>
+                "One of the greatest films ever made. The storytelling, acting, and pacing are entirely flawless from start to finish."
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- MOVIE PAGE 3: Interstellar                     -->
+    <!-- ============================================== -->
+    <div data-role="page" id="interstellar">
+        <div data-role="header" data-theme="b">
+            <a href="#home" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>
+            <h1>Interstellar</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="https://via.placeholder.com/400x300/111111/ffffff?text=Interstellar+Poster" class="poster">
+            <h2>Interstellar (2014)</h2>
+            <p class="genre">Genre: Sci-Fi / Adventure</p>
+            <p><strong>Summary:</strong> A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.</p>
+            
+            <div class="review-box">
+                <strong>Review:</strong> ⭐⭐⭐⭐<br><br>
+                "Visually stunning and emotionally gripping. A fantastic journey across space and time that will leave you thinking for days."
+            </div>
+        </div>
+    </div>
+
+
+    <!-- ============================================== -->
+    <!-- MOVIE PAGE 4: The Dark Knight                  -->
+    <!-- ============================================== -->
+    <div data-role="page" id="darkknight">
+        <div data-role="header" data-theme="b">
+            <a href="#home" class="ui-btn ui-icon-carat-l ui-btn-icon-notext ui-corner-all" data-transition="slide" data-direction="reverse">Back</a>
+            <h1>The Dark Knight</h1>
+        </div>
+        <div data-role="main" class="ui-content">
+            <img src="https://via.placeholder.com/400x300/222222/ffffff?text=Batman+Poster" class="poster">
+            <h2>The Dark Knight (2008)</h2>
+            <p class="genre">Genre: Action / Crime</p>
+            <p><strong>Summary:</strong> When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest tests of his ability to fight injustice.</p>
+            
+            <div class="review-box">
+                <strong>Review:</strong> ⭐⭐⭐⭐⭐<br><br>
+                "Heath Ledger's performance is legendary. A dark, gritty, and absolutely perfect superhero film."
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
