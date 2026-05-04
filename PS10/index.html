@@ -1,188 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AJAX To-Do List</title>
+    <title>To-Do List</title>
     <style>
-        
-        body { 
-            font-family: Arial, sans-serif; 
-            max-width: 500px; 
-            margin: 40px auto; 
-            background-color: #f9f9f9;
+        body {
+            font-family: Arial;
+            text-align: center;
+            margin-top: 50px;
         }
-        .container {
-            background: white;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+
+        input {
+            padding: 8px;
+            width: 250px;
         }
-        .task-item { 
-            display: flex; 
-            justify-content: space-between; 
-            align-items: center;
-            padding: 10px; 
-            border-bottom: 1px solid #ddd; 
-            background: #fff;
-        }
-        .task-actions button { 
-            margin-left: 5px; 
-            padding: 5px 10px;
+
+        button {
+            padding: 8px;
+            margin: 5px;
             cursor: pointer;
         }
-        input[type="text"] { 
-            padding: 10px; 
-            width: 70%; 
-            border: 1px solid #ccc;
-            border-radius: 4px;
+
+        ul {
+            list-style-type: none;
+            padding: 0;
         }
-        .add-btn { 
-            padding: 10px 15px; 
-            background-color: #28a745; 
-            color: white; 
-            border: none; 
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        #status { 
-            color: #28a745; 
-            font-size: 0.9em; 
-            height: 20px; 
-            margin-top: 10px; 
+
+        li {
+            margin: 10px;
+            background: #f9f9f9;
+            display: inline-block;
+            padding: 10px;
+            border-radius: 5px;
+            width: 350px;
         }
     </style>
 </head>
+
 <body>
 
-    <div class="container">
-        <h2>AJAX To-Do List</h2>
-        <p style="font-size: 0.8em; color: #666;">
-            Note: Demonstrating Add/Update/Delete AJAX calls using a free testing API (JSONPlaceholder).
-        </p>
+    <h2>To-Do List (AJAX)</h2>
 
-        
-        <div>
-            <input type="text" id="taskInput" placeholder="Enter a new task...">
-            <button class="add-btn" onclick="addTask()">Add Task</button>
-        </div>
+    <input type="text" id="taskInput" placeholder="What needs to be done?">
+    <button onclick="addTask()">Add Task</button>
 
-        
-        <div id="status"></div>
+    <ul id="taskList"></ul>
 
-        
-        <ul id="taskList" style="list-style-type: none; padding: 0; margin-top: 15px;">
-            
-        </ul>
-    </div>
-
-    <script>
-        
-        const API_URL = "https://jsonplaceholder.typicode.com/todos";
-
-        
-        function showStatus(message) {
-            const statusDiv = document.getElementById("status");
-            statusDiv.innerText = message;
-            setTimeout(() => { statusDiv.innerText = ""; }, 2000);
-        }
-
-        
-        function addTask() {
-            const taskInput = document.getElementById("taskInput");
-            const title = taskInput.value.trim();
-            if (!title) {
-                alert("Please enter a task.");
-                return;
-            }
-
-            
-            fetch(API_URL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ title: title, completed: false })
-            })
-            .then(response => response.json())
-            .then(data => {
-                showStatus("Task successfully saved to server!");
-                
-                
-                renderTask(Date.now(), title);
-                taskInput.value = ""; 
-            })
-            .catch(error => alert("Error saving task."));
-        }
-
-        
-        function updateTask(id, currentTitle, titleSpanElement) {
-            const newTitle = prompt("Update your task:", currentTitle);
-            if (!newTitle || newTitle === currentTitle) return; 
-
-            
-            fetch(`${API_URL}/1`, {
-                method: 'PUT',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ title: newTitle, completed: false })
-            })
-            .then(response => response.json())
-            .then(data => {
-                showStatus("Task updated on server!");
-                titleSpanElement.innerText = newTitle; 
-            })
-            .catch(error => alert("Error updating task."));
-        }
-
-        
-        function deleteTask(id, listItemElement) {
-            if (!confirm("Are you sure you want to delete this task?")) return;
-
-            
-            fetch(`${API_URL}/1`, {
-                method: 'DELETE'
-            })
-            .then(response => {
-                if (response.ok) {
-                    showStatus("Task deleted from server!");
-                    listItemElement.remove(); 
-                }
-            })
-            .catch(error => alert("Error deleting task."));
-        }
-
-        
-        function renderTask(id, title) {
-            const ul = document.getElementById("taskList");
-            
-            
-            const li = document.createElement("li");
-            li.className = "task-item";
-            
-            
-            const titleSpan = document.createElement("span");
-            titleSpan.innerText = title;
-
-            
-            const actionsDiv = document.createElement("div");
-            actionsDiv.className = "task-actions";
-
-            
-            const updateBtn = document.createElement("button");
-            updateBtn.innerText = "Edit";
-            updateBtn.onclick = () => updateTask(id, titleSpan.innerText, titleSpan);
-
-            
-            const deleteBtn = document.createElement("button");
-            deleteBtn.innerText = "Delete";
-            deleteBtn.onclick = () => deleteTask(id, li);
-
-            
-            actionsDiv.appendChild(updateBtn);
-            actionsDiv.appendChild(deleteBtn);
-            li.appendChild(titleSpan);
-            li.appendChild(actionsDiv);
-            ul.appendChild(li);
-        }
-    </script>
+    <!-- Link to your AJAX logic -->
+    <script src="script.js"></script>
 
 </body>
+
 </html>

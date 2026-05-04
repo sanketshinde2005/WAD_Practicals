@@ -1,103 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AJAX Weather Application</title>
-    
-    <style>
-        body { 
-            font-family: Arial, sans-serif; 
-            text-align: center; 
-            margin-top: 50px; 
-            background-color: #f4f4f9;
-        }
-        .container {
-            background: white;
-            padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            display: inline-block;
-        }
-        input, button { 
-            padding: 10px; 
-            font-size: 16px; 
-            margin: 5px; 
-            border-radius: 4px;
-            border: 1px solid #ccc;
-        }
-        button {
-            background-color: #007bff;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-        button:hover { background-color: #0056b3; }
-        #weather-result { 
-            margin-top: 20px; 
-            font-size: 18px; 
-            color: #333; 
-            text-align: left;
-        }
-        .error { color: red; text-align: center; display: block; }
-    </style>
+    <title>Weather App using AJAX</title>
 </head>
+
 <body>
+    <h2>Weather App</h2>
+    <input type="text" id="city" placeholder="Enter City">
+    <button onclick="getweather()">Get Weather</button>
 
-    <div class="container">
-        <h2>Local Weather Search</h2>
-        <p>Try: Pune, Mumbai, or Delhi</p>
-        
-        
-        <input type="text" id="cityInput" placeholder="Enter city name">
-        <button onclick="getWeather()">Get Weather</button>
+    <p id="result"></p>
 
-        
-        <div id="weather-result"></div>
-    </div>
-
-    
     <script>
-        function getWeather() {
-            
-            const city = document.getElementById("cityInput").value.toLowerCase().trim();
-            const resultDiv = document.getElementById("weather-result");
-
-            if (city === "") {
-                resultDiv.innerHTML = "<span class='error'>Please enter a city name.</span>";
-                return;
+        function getweather() {
+            let city = document.getElementById("city").value.toLowerCase();
+            let xhr = new XMLHttpRequest();
+            xhr.open("GET", "data.json", true)
+            xhr.onload = function () {
+                let data = JSON.parse(xhr.responseText);
+                if (data[city]) {
+                    let w = data[city];
+                    document.getElementById("result").innerHTML = "Temp" + w.temp + "<br>" +
+                        "Humidity" + w.humidity + "<br>"
+                        + "condition" + w.condition;
+                } else {
+                    document.getElementById("result").innerHTML = "City Not Found";
+                }
             }
-
-            resultDiv.innerHTML = "<p style='text-align:center;'>Fetching data...</p>";
-
-            
-            
-            fetch("weather.json")
-                .then(response => {
-                    if (!response.ok) {
-                        throw new Error("Could not load weather.json");
-                    }
-                    return response.json(); 
-                })
-                .then(data => {
-                    
-                    if (data[city]) {
-                        const weather = data[city];
-                        
-                        resultDiv.innerHTML = `
-                            <h3 style="text-align:center; color:#007bff;">${city.toUpperCase()}</h3>
-                            <p><strong>Temperature:</strong> ${weather.temperature}</p>
-                            <p><strong>Humidity:</strong> ${weather.humidity}</p>
-                            <p><strong>Condition:</strong> ${weather.condition}</p>
-                        `;
-                    } else {
-                        resultDiv.innerHTML = `<span class='error'>City '${city}' not found in our local database.</span>`;
-                    }
-                })
-                .catch(error => {
-                    resultDiv.innerHTML = `<span class='error'>Error: ${error.message}.<br><br><small>Note: AJAX requires a local web server (like Live Server in VS Code) to read local JSON files.</small></span>`;
-                });
+            xhr.send();
         }
     </script>
 </body>
+
 </html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>all users</title>
+</head>
+<body>
+    <h2>Registered Users list</h2>
+    <table id="userTable">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Mobile</th>
+            <th>City</th>
+        </tr>
+    </table>
+
+    <a href="index.html">Back to Register</a>
+
+    <script>
+        let xhr = new XMLHttpRequest();
+xhr.open('GET', 'http://localhost:3000/user-list', true);
+
+xhr.onload = function() {
+    if (xhr.status === 200) {
+        let users = JSON.parse(xhr.responseText);
+
+        let table = document.getElementById('userTable');
+
+        users.forEach(u => {
+            table.innerHTML += `<tr>
+                <td>${u.name}</td>
+                <td>${u.email}</td>
+                <td>${u.mobile}</td>
+                <td>${u.city}</td>
+            </tr>`;
+        });
+    }
+};
+
+xhr.send();
+    </script>
+</body>
+</html>

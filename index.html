@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
 </head>
-
 <body>
     <div class="form-box">
         <h3>Register</h3>
@@ -22,7 +20,7 @@
         </form>
     </div>
 
-    <div class="form-box">
+<div class="form-box">
         <h3>Login</h3>
         <input type="email" id="loginEmail" placeholder="Email">
         <input type="password" id="loginPass" placeholder="Password">
@@ -30,7 +28,8 @@
     </div>
 
     <script>
-        function registerUser() {
+        function registerUser()
+        {
             const formData = {
                 name: document.getElementById('name').value,
                 email: document.getElementById('email').value,
@@ -40,36 +39,37 @@
                 address: document.getElementById('address').value,
                 pass: document.getElementById('regPass').value
             };
-            if (!formData.name || formData.mobile.length !== 10) {
+            if(!formData.name || formData.mobile.length!==10)
+            {
                 alert("check Your Inputs!");
-                return;
+                return ;
             }
-            var xhr = new XMLHttpRequest();
-            xhr.open('POST', '/register', true);
-            xhr.setRequestHeader('Content-Type', 'application/json')
-            xhr.onload = function () {
+            var xhr=new XMLHttpRequest();
+            xhr.open('POST','/register',true);
+            xhr.setRequestHeader('Content-Type','application/json')
+            xhr.onload=function()
+            {
                 alert(xhr.responseText);
-                window.location.href = "display.html";
+                window.location.href="display.html";
             }
             xhr.send(JSON.stringify(formData));
         }
+        
+function loginUser(){
+    let email = document.getElementById("loginEmail").value;
+    let pass = document.getElementById("loginPass").value;
 
-        function loginUser() {
-            let email = document.getElementById("loginEmail").value;
-            let pass = document.getElementById("loginPass").value;
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST","/login",true);
+    xhr.setRequestHeader("Content-Type","application/json");
 
-            let xhr = new XMLHttpRequest();
-            xhr.open("POST", "/login", true);
-            xhr.setRequestHeader("Content-Type", "application/json");
+    xhr.onload = function() {
+        alert(xhr.responseText);
+    };
 
-            xhr.onload = function () {
-                alert(xhr.responseText);
-            };
-
-            xhr.send(JSON.stringify({ email, pass }));
-        }
+    xhr.send(JSON.stringify({ email, pass }));
+}
     </script>
 
 </body>
-
 </html>
