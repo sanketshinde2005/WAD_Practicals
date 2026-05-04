@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-commerce Product Listing</title>
-    <!-- Bootstrap 5 CSS via CDN -->
+    
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body class="bg-light">
@@ -12,7 +12,7 @@
     <div class="container my-5">
         <h1 class="text-center mb-5">Our Products</h1>
 
-        <!-- Category Filter Dropdown -->
+        
         <div class="d-flex justify-content-end mb-4">
             <div class="dropdown">
                 <button class="btn btn-primary dropdown-toggle" type="button" id="categoryDropdown" data-bs-toggle="dropdown" aria-expanded="false">
@@ -26,10 +26,10 @@
             </div>
         </div>
 
-        <!-- Responsive Product Grid -->
+        
         <div class="row g-4" id="productGrid">
             
-            <!-- Product 1 (Electronics) -->
+            
             <div class="col-12 col-md-6 col-lg-4 product-card electronics">
                 <div class="card h-100 shadow-sm">
                     <img src="https://via.placeholder.com/300x200?text=Laptop" class="card-img-top" alt="Gaming Laptop">
@@ -44,7 +44,7 @@
                 </div>
             </div>
 
-            <!-- Product 2 (Clothing) -->
+            
             <div class="col-12 col-md-6 col-lg-4 product-card clothing">
                 <div class="card h-100 shadow-sm">
                     <img src="https://via.placeholder.com/300x200?text=T-Shirt" class="card-img-top" alt="Cotton T-Shirt">
@@ -59,7 +59,7 @@
                 </div>
             </div>
 
-            <!-- Product 3 (Electronics) -->
+            
             <div class="col-12 col-md-6 col-lg-4 product-card electronics">
                 <div class="card h-100 shadow-sm">
                     <img src="https://via.placeholder.com/300x200?text=Headphones" class="card-img-top" alt="Wireless Headphones">
@@ -74,7 +74,7 @@
                 </div>
             </div>
             
-            <!-- Product 4 (Clothing) -->
+            
             <div class="col-12 col-md-6 col-lg-4 product-card clothing">
                 <div class="card h-100 shadow-sm">
                     <img src="https://via.placeholder.com/300x200?text=Jeans" class="card-img-top" alt="Blue Jeans">
@@ -92,23 +92,23 @@
         </div>
     </div>
 
-    <!-- Bootstrap 5 JS Bundle with Popper -->
+    
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     
-    <!-- Minimal JavaScript for Filtering -->
+    
     <script>
         function filterProducts(category) {
             const products = document.querySelectorAll('.product-card');
             
             products.forEach(product => {
                 if (category === 'all' || product.classList.contains(category)) {
-                    product.style.display = 'block'; // Show product
+                    product.style.display = 'block'; 
                 } else {
-                    product.style.display = 'none';  // Hide product
+                    product.style.display = 'none';  
                 }
             });
 
-            // Update dropdown button text
+            
             const dropdownBtn = document.getElementById('categoryDropdown');
             dropdownBtn.innerText = category === 'all' ? 'All Products' : category.charAt(0).toUpperCase() + category.slice(1);
         }

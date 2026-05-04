@@ -12,7 +12,7 @@
         }
         h2 { text-align: center; color: #333; }
         
-        /* Flexbox for the grid */
+        
         .product-grid { 
             display: flex; 
             gap: 20px; 
@@ -20,7 +20,7 @@
             justify-content: center;
         }
         
-        /* Individual product card styling */
+        
         .product-card { 
             background: white; 
             padding: 15px; 
@@ -55,18 +55,18 @@
     </div>
 
     <script>
-        // Fetch products from our Node.js API
-        // Absolute URL ensures it works via Live Server or direct file open
+        
+        
         fetch('http://localhost:3001/api/products')
             .then(response => {
                 if (!response.ok) throw new Error("Server error");
-                return response.json(); // Parse the JSON from the server
+                return response.json(); 
             })
             .then(products => {
                 const grid = document.getElementById('product-grid');
-                grid.innerHTML = ''; // Clear the "Loading..." message
+                grid.innerHTML = ''; 
 
-                // Loop through the data and generate HTML cards dynamically
+                
                 products.forEach(product => {
                     const card = document.createElement('div');
                     card.className = 'product-card';

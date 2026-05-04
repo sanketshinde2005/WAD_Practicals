@@ -1,17 +1,16 @@
-// Import core Node.js modules
+
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-// Using port 3001 so it doesn't conflict if your PS14 server is still running!
 const PORT = 3001; 
 
 const server = http.createServer((req, res) => {
     
-    // Enable CORS to allow Live Server frontend to access this API
+    
     res.setHeader('Access-Control-Allow-Origin', '*');
 
-    // Route 1: Product API Endpoint
+    
     if (req.url === '/api/products' && req.method === 'GET') {
         const filePath = path.join(__dirname, 'products.json');
         
@@ -26,7 +25,7 @@ const server = http.createServer((req, res) => {
         });
     } 
     
-    // Route 2: Serve the Front-end HTML
+    
     else if (req.url === '/' || req.url === '/index.html') {
         const htmlPath = path.join(__dirname, 'index.html');
         
@@ -41,7 +40,7 @@ const server = http.createServer((req, res) => {
         });
     } 
     
-    // Handle 404s
+    
     else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('404 Not Found');

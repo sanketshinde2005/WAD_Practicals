@@ -1,4 +1,4 @@
-/* Basic reset and styling */
+
 body {
     font-family: Arial, sans-serif;
     background-color: #f8f9fa;
@@ -6,7 +6,6 @@ body {
     padding: 20px;
 }
 
-/* Container for centering and styling */
 .container {
     max-width: 800px;
     margin: 0 auto;
@@ -21,13 +20,11 @@ h1 {
     color: #333;
 }
 
-/* Responsive table wrapper */
 .table-responsive {
     overflow-x: auto;
     width: 100%;
 }
 
-/* Table styling */
 table {
     width: 100%;
     border-collapse: collapse;
@@ -51,7 +48,6 @@ td img {
     display: block;
 }
 
-/* Pagination buttons styling */
 .pagination {
     display: flex;
     justify-content: center;

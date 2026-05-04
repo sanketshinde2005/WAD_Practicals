@@ -55,20 +55,20 @@
             </tr>
         </thead>
         <tbody id="tableBody">
-            <!-- Local storage data will be populated here -->
+            
         </tbody>
     </table>
 
     <script>
-        // 1. Fetch the data array from local storage
+        
         let usersList = JSON.parse(localStorage.getItem("usersList")) || [];
         const tbody = document.getElementById("tableBody");
 
-        // 2. Check if array is empty
+        
         if (usersList.length === 0) {
             tbody.innerHTML = "<tr><td colspan='6' style='text-align:center;'>No users registered yet.</td></tr>";
         } else {
-            // 3. Loop through the array and dynamically create table rows
+            
             usersList.forEach(user => {
                 const row = `
                     <tr>
@@ -80,7 +80,7 @@
                         <td>${user.address}</td>
                     </tr>
                 `;
-                // Append row to the table body
+                
                 tbody.innerHTML += row;
             });
         }

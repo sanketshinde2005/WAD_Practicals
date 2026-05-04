@@ -25,7 +25,6 @@ header p {
     font-style: italic;
 }
 
-/* Flexbox layout for the gallery */
 .gallery {
     display: flex;
     flex-wrap: wrap;
@@ -36,7 +35,6 @@ header p {
     margin: 0 auto;
 }
 
-/* Styling each artwork container */
 .art-piece {
     background: white;
     padding: 15px;

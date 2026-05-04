@@ -41,24 +41,24 @@
 
     <h2>User Directory</h2>
     
-    <!-- The list container -->
+    
     <ul id="user-list">
         <li style="justify-content: center; color: gray;">Loading data from Node.js server...</li>
     </ul>
 
     <script>
-        // 1. Use the Fetch API to make an AJAX request to our Node.js server
-        // Using the absolute URL http://localhost:3000 ensures it works even if you open this file with Live Server
+        
+        
         fetch('http://localhost:3000/api/users')
             .then(response => {
                 if (!response.ok) throw new Error("Network response was not ok");
-                return response.json(); // Parse the JSON data sent by the server
+                return response.json(); 
             })
             .then(users => {
                 const listContainer = document.getElementById('user-list');
-                listContainer.innerHTML = ''; // Clear the "Loading..." text
+                listContainer.innerHTML = ''; 
                 
-                // 2. Loop through the array of users and dynamically create HTML
+                
                 users.forEach(user => {
                     const li = document.createElement('li');
                     
@@ -72,7 +72,7 @@
                         </div>
                     `;
                     
-                    // Add the list item to the UI
+                    
                     listContainer.appendChild(li);
                 });
             })

@@ -13,7 +13,7 @@
         }
         h2 { color: #333; margin-bottom: 30px; }
         
-        /* Grid Layout */
+        
         .grid { 
             display: flex; 
             flex-wrap: wrap; 
@@ -21,7 +21,7 @@
             gap: 20px; 
         }
         
-        /* Employee Card Styling */
+        
         .card { 
             background: white; 
             padding: 20px; 
@@ -63,8 +63,8 @@
     </div>
 
     <script>
-        // Fetch employee data from the Node.js API
-        // Using absolute URL http://localhost:3003 ensures it works with Live Server
+        
+        
         fetch('http://localhost:3003/api/employees')
             .then(res => {
                 if (!res.ok) throw new Error("Server error");
@@ -72,9 +72,9 @@
             })
             .then(employees => {
                 const grid = document.getElementById('employee-grid');
-                grid.innerHTML = ''; // Clear loading text
+                grid.innerHTML = ''; 
                 
-                // Dynamically build the cards
+                
                 employees.forEach(emp => {
                     grid.innerHTML += `
                         <div class="card">

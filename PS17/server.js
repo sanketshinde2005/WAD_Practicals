@@ -1,17 +1,16 @@
-// Import Node.js built-in modules
+
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 
-// Using port 3003 to prevent conflict with other servers
 const PORT = 3003; 
 
 const server = http.createServer((req, res) => {
     
-    // Enable CORS
+    
     res.setHeader('Access-Control-Allow-Origin', '*');
 
-    // Route 1: API Endpoint that provides Employee Data
+    
     if (req.url === '/api/employees' && req.method === 'GET') {
         const filePath = path.join(__dirname, 'employees.json');
         
@@ -26,7 +25,7 @@ const server = http.createServer((req, res) => {
         });
     } 
     
-    // Route 2: Serve the Front-end HTML
+    
     else if (req.url === '/' || req.url === '/index.html') {
         const htmlPath = path.join(__dirname, 'index.html');
         
@@ -41,14 +40,13 @@ const server = http.createServer((req, res) => {
         });
     } 
     
-    // Handle 404
+    
     else {
         res.writeHead(404, { 'Content-Type': 'text/plain' });
         res.end('404 Not Found');
     }
 });
 
-// Start the server
 server.listen(PORT, () => {
     console.log(`Employee Directory Server running at http://localhost:${PORT}/`);
     console.log(`API Endpoint: http://localhost:${PORT}/api/employees`);

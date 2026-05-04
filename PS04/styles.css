@@ -1,21 +1,19 @@
-/* Basic styling for the entire page */
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f0f8ff; /* Light blue background */
+    background-color: #f0f8ff; 
     color: #333;
 }
 
-/* Header style */
 header {
-    background-color: #007bff; /* Primary Blue */
+    background-color: #007bff; 
     color: white;
     text-align: center;
     padding: 20px;
 }
 
-/* Center container */
 .container {
     max-width: 800px;
     margin: 20px auto;
@@ -31,10 +29,9 @@ header {
 }
 
 h2, h3 {
-    color: #0056b3; /* Darker blue for headings */
+    color: #0056b3; 
 }
 
-/* Flexbox to display learning paths and categories side-by-side */
 .details {
     display: flex;
     justify-content: space-around;
@@ -42,17 +39,16 @@ h2, h3 {
 }
 
 .box {
-    background: #e9ecef; /* Light gray box background */
+    background: #e9ecef; 
     padding: 15px;
     border-radius: 5px;
     width: 40%;
     box-shadow: 0 2px 4px rgba(0,0,0,0.1);
 }
 
-/* Table styling */
 table {
     width: 100%;
-    border-collapse: collapse; /* Merges table borders */
+    border-collapse: collapse; 
     margin-top: 15px;
 }
 

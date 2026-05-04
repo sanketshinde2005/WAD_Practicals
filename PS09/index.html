@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AJAX Weather Application</title>
-    <!-- Minimal Styling -->
+    
     <style>
         body { 
             font-family: Arial, sans-serif; 
@@ -48,18 +48,18 @@
         <h2>Local Weather Search</h2>
         <p>Try: Pune, Mumbai, or Delhi</p>
         
-        <!-- Input and Button -->
+        
         <input type="text" id="cityInput" placeholder="Enter city name">
         <button onclick="getWeather()">Get Weather</button>
 
-        <!-- Display Area -->
+        
         <div id="weather-result"></div>
     </div>
 
-    <!-- AJAX Script -->
+    
     <script>
         function getWeather() {
-            // Get input value and convert to lowercase to match JSON keys
+            
             const city = document.getElementById("cityInput").value.toLowerCase().trim();
             const resultDiv = document.getElementById("weather-result");
 
@@ -70,20 +70,20 @@
 
             resultDiv.innerHTML = "<p style='text-align:center;'>Fetching data...</p>";
 
-            // 1. Create an AJAX request using the modern Fetch API
-            // Note: Browsers block local file fetching (CORS). You must run this via a local server (e.g. VS Code Live Server)
+            
+            
             fetch("weather.json")
                 .then(response => {
                     if (!response.ok) {
                         throw new Error("Could not load weather.json");
                     }
-                    return response.json(); // Parse the JSON data
+                    return response.json(); 
                 })
                 .then(data => {
-                    // 2. Check if the requested city exists in our local JSON map
+                    
                     if (data[city]) {
                         const weather = data[city];
-                        // 3. Display the fetched data dynamically
+                        
                         resultDiv.innerHTML = `
                             <h3 style="text-align:center; color:#007bff;">${city.toUpperCase()}</h3>
                             <p><strong>Temperature:</strong> ${weather.temperature}</p>
