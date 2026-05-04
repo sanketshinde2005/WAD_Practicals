@@ -35,8 +35,8 @@ function addTask() {
     xhr.open("POST", "/tasks", true);
     xhr.setRequestHeader("Content-Type", "application/json");
     xhr.onload = function () {
-        taskInput.value = ""; // Clear input
-        loadTasks(); // Refresh list via AJAX
+        taskInput.value = ""; 
+        loadTasks(); 
     };
     xhr.send(JSON.stringify({ name: taskName }));
 }
@@ -50,7 +50,6 @@ function updateTask(index) {
     xhr.send();
 }
 
-// DELETE: Remove task from the server
 function deleteTask(index) {
     var xhr = new XMLHttpRequest();
     xhr.open("DELETE", "/tasks/" + index, true);
