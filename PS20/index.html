@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Manager</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 30px; }
+        table { border-collapse: collapse; width: 100%; margin-top: 20px; }
+        th, td { border: 1px solid #999; padding: 8px 12px; text-align: left; }
+        th { background: #eee; }
+        input { padding: 6px; margin-right: 6px; }
+        button { padding: 6px 12px; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <h1>Employee Manager</h1>
+    <input id="name" placeholder="Name">
+    <input id="department" placeholder="Department">
+    <input id="salary" type="number" placeholder="Salary">
+    <button onclick="addEmp()">Add</button>
+
+    <table>
+        <thead><tr><th>Name</th><th>Department</th><th>Salary</th><th>Actions</th></tr></thead>
+        <tbody id="tbody"></tbody>
+    </table>
+
+    <script>
+        async function load() {
+            const data = await (await fetch('/view')).json();
+            document.getElementById('tbody').innerHTML = data.map(e =>
+                `<tr><td>${e.name}</td><td>${e.department}</td><td>${e.salary}</td>
+                <td><button onclick="del('${e.name}')">Delete</button></td></tr>`
+            ).join('');
+        }
+
+        async function addEmp() {
+            const body = { name: document.getElementById('name').value, department: document.getElementById('department').value, salary: Number(document.getElementById('salary').value) };
+            await fetch('/add', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) });
+            document.getElementById('name').value = ''; document.getElementById('department').value = ''; document.getElementById('salary').value = '';
+            load();
+        }
+
+        async function del(name) {
+            await fetch('/delete/' + encodeURIComponent(name), { method: 'DELETE' });
+            load();
+        }
+
+        load();
+    </script>
+</body>
+</html>
