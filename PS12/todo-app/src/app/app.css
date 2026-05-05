@@ -1,0 +1,23 @@
+.container {
+  width: 320px;
+  margin: auto;
+  text-align: center;
+  font-family: Arial;
+}
+
+input {
+  width: 70%;
+  padding: 6px;
+  margin-bottom: 10px;
+}
+
+button {
+  margin: 4px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+li {
+  list-style: none;
+  margin: 8px 0;
+}
